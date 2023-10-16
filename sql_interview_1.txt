@@ -28,3 +28,18 @@ VALUES
     (3, 'Manager'),
     (4, 'Technician'),
     (5, 'Manager');
+
+
+---------------------------------------------------------------------------------------
+##Solving Interview Question 1
+
+SELECT e.empfname, e.emplname, CONCAT(e.empfname, ' ', e.emplname) AS f_l_combined
+, e2.empposition
+FROM employee e
+LEFT JOIN
+employeesalary e2
+ON e.empid = e2.empid
+WHERE e2.empposition = 'Manager'
+
+
+
