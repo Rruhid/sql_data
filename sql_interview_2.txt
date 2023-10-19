@@ -1,4 +1,4 @@
-CREATE TABLE employees (
+CREATE TABLE employee_2 (
     emp_id SERIAL PRIMARY KEY,
     emp_name VARCHAR(50),
     salary DECIMAL(10, 2),
@@ -6,7 +6,7 @@ CREATE TABLE employees (
 );
 
 -- Insert sample data into the employees table
-INSERT INTO employees (emp_name, salary, department_id) VALUES
+INSERT INTO employee_2 (emp_name, salary, department_id) VALUES
 ('John Smith', 55000.00, 1),
 ('Jane Johnson', 60000.00, 1),
 ('Bob Brown', 52000.00, 2),
