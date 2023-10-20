@@ -19,5 +19,25 @@ _____________________________________________
 ##Solving Interview Question 2
 
 
+--Solution1 
+SELECT e.emp_name, e1.department_id, e1.Max_Sal FROM employee_2 e 
+INNER JOIN 
+(SELECT department_id, MAX(salary) AS Max_Sal FROM employee_2 GROUP BY department_id) as e1 
+ON e.department_id = e1.department_id  AND  e.salary = e1.Max_Sal
+ 
+ 
+--Solution 2
+
+SELECT DISTINCT ON (department_id)
+emp_name, department_id, salary FROM employee_2 ORDER BY department_id, salary DESC
+
+--Solution 3 
+
+ WITH CTE AS (SELECT  emp_name, department_id, salary, 
+DENSE_RANK() OVER(PARTITION BY department_id ORDER BY salary DESC) as ranking 
+FROM employee_2)
+SELECT emp_name, department_id, salary FROM CTE WHERE ranking = 1 
+
+ 
 
 
