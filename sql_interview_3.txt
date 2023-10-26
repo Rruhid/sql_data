@@ -24,6 +24,25 @@ _____________________________________________
 
 ##Solving Interview Question 3
 
+--Solution 1 
+SELECT * FROM salestable
+
+SELECT 'TotalSales' AS TotalSales, 
+SUM(CASE WHEN salesyear = '2010' THEN Quantity ELSE 0 END) AS "2010",
+SUM(CASE WHEN salesyear = '2015' THEN Quantity ELSE 0 END) AS "2015",
+SUM(CASE WHEN salesyear = '2022' THEN Quantity ELSE 0 END) AS "2020"
+FROM 
+(SELECT salesyear, SUM(quantitysold) AS Quantity  FROM salestable GROUP BY salesyear)
+
+
+--Solution 2 
+
+SELECT 'TotalSales' AS TotalSales, 
+SUM(CASE WHEN salesyear = '2010' THEN quantitysold ELSE 0 END) AS "2010",
+SUM(CASE WHEN salesyear = '2015' THEN quantitysold ELSE 0 END) AS "2015",
+SUM(CASE WHEN salesyear = '2022' THEN quantitysold ELSE 0 END) AS "2020"
+FROM salestable 
+WHERE salesyear IN ('2010','2015','2022')
 
 
 
