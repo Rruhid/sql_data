@@ -19,26 +19,11 @@ VALUES
 ('Tom Wilson', 59000.00, 3),
 ('Sarah White', 58000.00, 3),
 ('Silly Kerin', 40000.00, 3);
-
-
--- Create the "department" table
-CREATE TABLE department (
-  department_id INT PRIMARY KEY,
-  department_name VARCHAR(255)
-);
-
--- Insert data for departments
-INSERT INTO department (department_id, department_name)
-VALUES
-  (1, 'HR'),
-  (2, 'IT'),
-  (3, 'Finance'),
-  (4, 'Marketing'),
-  (5, 'Sales');
+ 
 
 _____________________________________________
 
-##Solving Interview Question 4
+##Solving Interview Question 5
 
 
 
