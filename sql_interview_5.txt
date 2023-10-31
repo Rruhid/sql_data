@@ -1,6 +1,6 @@
  
  
--- Create the "employee_2" table
+-- Create the "employee" table
 CREATE TABLE employee_2 (
     emp_id SERIAL PRIMARY KEY,
     emp_name VARCHAR(50),
@@ -8,7 +8,7 @@ CREATE TABLE employee_2 (
     department_id INT
 );
 
--- Insert sample data into the "employee_2" table
+-- Insert sample data into the "employee" table
 INSERT INTO employee_2 (emp_name, salary, department_id) 
 VALUES
 ('John Smith', 55000.00, 1),
