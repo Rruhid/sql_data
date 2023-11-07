@@ -25,6 +25,17 @@ _____________________________________________
 
 ##Solving Interview Question 5
 
+WITH CTE_department_avg AS (
+  SELECT e.department_id, AVG(e.salary) AS department_avg
+  FROM employee  e
+  GROUP BY e.department_id
+)
+
+SELECT e.emp_id, e.emp_name, e.salary, e.department_id
+FROM employee   e
+JOIN CTE_department_avg  da ON e.department_id = da.department_id
+WHERE e.salary > da.department_avg
+
 
 
 
