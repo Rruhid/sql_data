@@ -83,6 +83,46 @@ _____________________________________________
 
 ##Solving Interview Question top_6 
 
+-- Q1
+ SELECT DISTINCT e.empid, e.empfname, e.department
+FROM employees e, employees e2
+WHERE e.department = e2.department AND e.empid != e2.empid;
+
+--Q2 
+
+SELECT p.productname, p.quantitysold
+FROM salestable p
+WHERE p.quantitysold > (
+  SELECT AVG(quantitysold) AS avg_price
+  FROM salestable
+)
+
+--Q3 
+
+SELECT * 
+FROM customers 
+WHERE email LIKE '%example%' 
+    AND first_name LIKE 'J%' 
+    AND last_name LIKE '__i%';
+
+--Q4 
+
+SELECT emp_name, salary, RANK() OVER (ORDER BY salary) AS salary_rank
+FROM employees
+WHERE salary IN (SELECT salary FROM employee_2 GROUP BY salary HAVING COUNT(*) > 1)
+ORDER BY salary_rank, emp_name;
+
+
+--Q5 
+
+SELECT UPPER(first_name) AS First_name, LOWER(last_name) AS Last_name, 
+LOWER(email) AS Email_2 FROM  customers WHERE LENGTH(first_name)>5
+
+
+
+
+
+
 
 
 
