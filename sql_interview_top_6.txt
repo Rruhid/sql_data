@@ -108,7 +108,7 @@ WHERE email LIKE '%example%'
 --Q4 
 
 SELECT emp_name, salary, RANK() OVER (ORDER BY salary) AS salary_rank
-FROM employees
+FROM employee_2
 WHERE salary IN (SELECT salary FROM employee_2 GROUP BY salary HAVING COUNT(*) > 1)
 ORDER BY salary_rank, emp_name;
 
