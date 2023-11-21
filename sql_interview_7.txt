@@ -1,0 +1,22 @@
+
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100),
+    phone_number VARCHAR(15)
+);
+
+INSERT INTO customers (customer_id, first_name, last_name, email, phone_number) VALUES
+    (1, 'John', 'Doe', 'johndoe@example.com', '+1-555-123-4567'),
+    (2, 'Jane', 'Smith', 'janesmith@customer.com', '+1-555-987-6543'),
+    (3, 'Alice', 'Johnson', 'alicejohnson@example.com', '+1-555-567-8901'),
+    (4, 'Bob', 'Brown', 'bobbrown@example.com', '+1-555-234-5678'),
+    (5, 'Charlie', 'Williams', 'charliewilliams@fbibie.com', '+1-555-678-1234'),
+    (6, 'Jessica', 'Williams', 'jeniferwilliams@example.com', '+1-445-678-1234'),
+    (7, 'Jane', 'Smithern', 'janesmith@cexample.com', '+1-555-987-6543'),
+    (8, 'Jenifere', 'Smithernes', 'janesmith@cexample.com', '+1-55-987-6543');
+
+_________________________________________
+
+#SQL Interview answers:
