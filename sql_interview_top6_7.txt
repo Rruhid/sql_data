@@ -40,8 +40,14 @@ SELECT  email,
 FROM 
   customers;
 
-
 --Q4
+
+SELECT email, SUBSTRING(email FROM 1 FOR POSITION('@' IN email) - 1) AS Extracted FROM customers;
+
+
+
+
+--Q5
 SELECT email, SUBSTRING(email FROM 1 FOR POSITION('@' IN email) - 1) AS Extracted FROM customers;
 SELECT 
   email, 
@@ -50,6 +56,15 @@ SELECT
     POSITION('@' IN email) )) AS Extracted 
 FROM 
   customers;
+
+--Q6
+
+SELECT first_name, last_name, email,
+ LENGTH(CONCAT(first_name, '', last_name)) AS AvgFullNameLength
+FROM 
+  customers
+WHERE 
+  email NOT LIKE '%example.com%'
 
 
 
