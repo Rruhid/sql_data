@@ -20,3 +20,37 @@ INSERT INTO customers (customer_id, first_name, last_name, email, phone_number) 
 _________________________________________
 
 #SQL Interview answers:
+--Q1
+ SELECT first_name, last_name, email, CONCAT(first_name, ' ', last_name) AS FULL_NAME,
+RIGHT(email, 3) as Domains,
+LEFT(RIGHT(email, 4), 1) AS EXR FROM customers
+
+
+--Q2
+SELECT first_name, last_name,  
+UPPER(CONCAT(LEFT(first_name, 1), '.', LEFT(last_name,1))) AS Initials FROM customers
+ 
+--Q3
+SELECT  email, 
+  SUBSTRING(
+    email, 
+    POSITION('@' IN email) +1, 
+    POSITION('.' IN SUBSTRING(email FROM POSITION('@' IN email) +2))
+  ) AS Extracted 
+FROM 
+  customers;
+
+
+--Q4
+SELECT email, SUBSTRING(email FROM 1 FOR POSITION('@' IN email) - 1) AS Extracted FROM customers;
+SELECT 
+  email, 
+  CONCAT(SUBSTRING(email FROM 1 FOR POSITION('@' IN email) - 3), '***', SUBSTRING(
+    email, 
+    POSITION('@' IN email) )) AS Extracted 
+FROM 
+  customers;
+
+
+
+
