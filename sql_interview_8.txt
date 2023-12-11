@@ -36,3 +36,36 @@ VALUES
 _________________________________________
 
 #SQL Interview answers:
+
+SELECT * from employeeinfo
+
+WITH CTE_null as (
+SELECT * from employeeinfo 
+	WHERE employer IS NOT NULL 
+	AND 
+	location IS NOT NULL),
+CTE_wildcards as (
+	SELECT * FROM CTE_null WHERE job_title LIKE '%Engineer%'
+),
+CTE_char_datatypes as (
+SELECT CAST (datacolumn as DATE) as datacolumn,
+	   UPPER(employer) AS employer, 
+	   location,
+	   years_of_experience,
+	CAST(annual_base_pay AS INT) as annual_base_pay, 
+    CAST(annual_bonus AS INT) as annual_bonus, 
+	gender, additional_comments FROM CTE_wildcards
+),
+CTE_change_combine AS (
+SELECT datacolumn, location, employer,
+	CASE WHEN years_of_experience <5 THEN '<5 years'
+		 WHEN years_of_experience BETWEEN 5 AND 10 THEN  '5-10 years'
+	     ELSE '>10 years' END as years_of_exp_2,
+	 CONCAT(annual_base_pay, '/', annual_bonus),
+	 gender,
+	additional_comments FROM CTE_char_datatypes
+	 
+)
+ 
+SELECT * FROM CTE_change_combine
+
