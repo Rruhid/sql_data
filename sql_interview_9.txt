@@ -22,3 +22,14 @@ INSERT INTO students VALUES (5, 'John Mike', 'Subject3', 98);
 _________________________________________
 
 #SQL Interview answers:
+
+SELECT subject, 
+SUM(CASE WHEN rank_desc = 2 THEN marks ELSE null end) as R_max,
+SUM( CASE WHEN rank_asc  = 2 THEN marks ELSE null end) as R_min 
+FROM 
+(SELECT subject, marks, 
+DENSE_RANK() OVER(PARTITION BY subject order by marks desc) as rank_desc,
+DENSE_RANK() OVER(PARTITION BY subject order by marks asc) as rank_asc
+FROM students) a 
+GROUP BY subject; 
+
